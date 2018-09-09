@@ -3,6 +3,7 @@ function Microwave(ctx){
     this.y = 150
     this.w = 400
     this.h = 200
+    this.clock
 
     this.draw = function(){
         this.drawFront()

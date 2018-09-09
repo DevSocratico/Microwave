@@ -4,6 +4,7 @@ window.onload = function(){
     var ctx = cnv.getContext('2d')
 
     var microwave = new Microwave(ctx)
+    microwave.clock = new Clock(ctx, microwave)
 
     function cleanScreen(){
         ctx.save()
@@ -26,6 +27,7 @@ window.onload = function(){
         window.requestAnimationFrame(loop, cnv)
         cleanScreen()
         microwave.draw()
+        microwave.clock.timer()
     }
 
     setGuestName()
