@@ -4,6 +4,10 @@ function Microwave(ctx){
   this.w = 400;
   this.h = 200;
   this.clock;
+  this.btnStart;
+  this.btnCancel;
+  this.btnPlusOne;
+  this.btnPlusFive;
 
   this.draw = function(){
     this.drawFront();
