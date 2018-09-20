@@ -3,6 +3,7 @@ function Microwave(ctx){
   this.y = 150;
   this.w = 400;
   this.h = 200;
+  this.warming = false;
   this.clock;
   this.btnStart;
   this.btnCancel;
@@ -51,8 +52,17 @@ function Microwave(ctx){
 
   this.drawVisor = function(){
     ctx.save();
-    ctx.fillStyle = '#aaa';
+    ctx.fillStyle = this.warming ? this.getGradient() : '#aaa';
     ctx.fillRect(this.x + (this.w * 1/18), this.y + (this.h * 1/8), this.w * 5/9, this.h * 3/4);
     ctx.restore();
+  }
+
+  this.getGradient = function(){
+    ctx.save();
+    let gradient = ctx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, '#f00');
+    gradient.addColorStop(1, '#ff0');
+    ctx.restore();
+    return gradient;
   }
 }
